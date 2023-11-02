@@ -14,11 +14,8 @@ import Pricing from "./components/Pricing";
 
 function App() {
   return (
-    <html>
-    <body className="main-layout">
-
+    <div>
       {/* <Loader /> */}
-
       <div className="full_bg">
         <Header />
         <Slider />
@@ -31,10 +28,8 @@ function App() {
       <About />
       <Customers />
       <Footer />
-
-    </body>
-    </html>
-  );
+    </div>
+  )
 }
 
 export default App;

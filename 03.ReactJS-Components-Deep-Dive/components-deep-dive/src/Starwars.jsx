@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 export default function Starwars(props) {
-    const [characters, setCharacters] = useState([]);
+    const [characters, setCharacters] = useState([]);  //if characters is array the initial value should be [] !!!
     
     useEffect(() => {
-        fetch(`https://swapi.dev/api/people`)
+        fetch(`https://swapi.dev/api/people`)  //async functions don't work in useEffect
             .then((response) => response.json())
             .then((data) => {
                 setCharacters(data.results);

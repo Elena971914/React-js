@@ -2,7 +2,7 @@ export default function TodoItem({
     _id,
     text,
     isCompleted,
-    changeStatusHandler
+    changeStatusHandler  //Object Destructuring Assignment
 }) {
     const onChangeStatusClick = () => {
         changeStatusHandler(_id);

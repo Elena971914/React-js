@@ -1,7 +1,7 @@
 import ToDoItem from "./ToDoItem";
 import { useEffect, useState } from "react";
 
-export default function Table(options) {
+export default function Table() {
   const [toDoList, setToDos] = useState([])
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Table(options) {
   }, []);
 
   const changeStatusHandler = (id) => {
-    setToDos(toDoArray => toDoArray.map((todo) => todo._id === id ? {...todo, isCompleted: !isCompleted} : todo))
+    setToDos(toDoArray => toDoArray.map(todo => todo._id === id ? {...todo, isCompleted: !todo.isCompleted} : todo))
   }
 
   return (
@@ -45,7 +45,7 @@ export default function Table(options) {
               {toDoList.map(row => (
                 <ToDoItem 
                 key={row._id} 
-                id={row._id} 
+                _id={row._id} 
                 text={row.text}
                 isCompleted={row.isCompleted}
                 changeStatusHandler={changeStatusHandler}/>

@@ -1,4 +1,4 @@
-export default function Service() {
+export default function Services() {
     return(
         <div className="container-xxl py-5">
             <div className="container">

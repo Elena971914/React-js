@@ -2,8 +2,22 @@ import MenuItem from "./Menu/MenuItem";
 import menuList from "../assets/menu";
 import MenuNavItem from "./Menu/MenuNavItem";
 import menuNavItems from "../assets/menu-nav"
+import { useState, useEffect} from "react"
 
 export default function Menu() {
+    const [menu, setMenu] = useState([])
+    const [menuNav, setMenuNav] = useState([])
+    const [menuType, setMenuType] = useState('lunch')
+
+    useEffect(() => {
+        setMenu(menuList)
+        setMenuNav(menuNavItems)
+    }, [])
+
+    const showMenuClickHandler = (type) => {
+        setMenuType(type)
+    }
+
     return(
         <div className="container-xxl py-5">
             <div className="container">
@@ -13,33 +27,12 @@ export default function Menu() {
                 </div>
                 <div className="tab-className text-center wow fadeInUp" data-wow-delay="0.1s">
                     <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        < MenuNavItem menuNavItemData={menuNavItems[0]} />
-                        < MenuNavItem menuNavItemData={menuNavItems[1]} />
-                        < MenuNavItem menuNavItemData={menuNavItems[2]} />
+                        {menuNav.map((navItem) => < MenuNavItem menuNavItemData={navItem} key={navItem.id} showMenu={showMenuClickHandler}/>)}
                     </ul>
                     <div className="tab-content">
                         <div id="tab-1" className="tab-pane fade show p-0 active">
                             <div className="row g-4">
-                                <MenuItem meal={menuList[0]}/>
-                                <MenuItem meal={menuList[1]}/>
-                                <MenuItem meal={menuList[2]}/>
-                                <MenuItem meal={menuList[3]}/>
-                            </div>
-                        </div>
-                        <div id="tab-2" className="tab-pane fade show p-0">
-                            <div className="row g-4">
-                                <MenuItem meal={menuList[4]}/>
-                                <MenuItem meal={menuList[5]}/>
-                                <MenuItem meal={menuList[6]}/>
-                                <MenuItem meal={menuList[7]}/>
-                            </div>
-                        </div>
-                        <div id="tab-3" className="tab-pane fade show p-0">
-                            <div className="row g-4">
-                                <MenuItem meal={menuList[8]}/>
-                                <MenuItem meal={menuList[9]}/>
-                                <MenuItem meal={menuList[10]}/>
-                                <MenuItem meal={menuList[11]}/>
+                            {menu.map((item) => item.type === `${menuType}` && < MenuItem meal={item} key={item.id}/>)}
                             </div>
                         </div>
                     </div>

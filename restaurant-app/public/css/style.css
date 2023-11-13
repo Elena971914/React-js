@@ -135,7 +135,7 @@
 
 @media (min-width: 992px) {
     .navbar-dark {
-        position: absolute;
+        /* position: absolute; */
         width: 100%;
         top: 0;
         left: 0;

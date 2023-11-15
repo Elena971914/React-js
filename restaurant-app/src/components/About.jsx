@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom"
+
 export default function About() {
     return(
         <div className="container-xxl py-5">
@@ -21,7 +23,7 @@ export default function About() {
                     </div>
                     <div className="col-lg-6">
                         <h5 className="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 className="mb-4">Welcome to <i className="fa fa-utensils text-primary me-2"></i>Restoran</h1>
+                        <h1 className="mb-4">Welcome to <i className="fa fa-utensils text-primary me-2"></i>Sweet</h1>
                         <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
                         <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <div className="row g-4 mb-4">
@@ -44,7 +46,7 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                        <a className="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                        <Link to="/about" className="btn btn-primary py-3 px-5 mt-2" >Read More</Link>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 export default [
-    {   "author": 'Elena Petkova',
+    {   "id": 1,
+        "author": 'Elena Petkova',
         "name": "Crock Pot Roast with wild onion",
         "ingredients": [
             {
@@ -38,8 +39,9 @@ export default [
         "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
         "originalURL": "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
     },
-    {"author": 'Stefan Rusinov',
-        "name": "Roasted Asparagus with parmesan cheese",
+    {
+        "id": 2,"author": 'Stefan Rusinov',
+        "name": "Roasted Asparagus with kosher salt",
         "ingredients": [
             {
                 "quantity": "1 lb",
@@ -119,7 +121,9 @@ export default [
     //     ],
     //     "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
     // },
-    {"author": 'Bisera Atanasova',
+    {
+        "id": 3,
+        "author": 'Bisera Atanasova',
         "name": "Big Night Pizza with ham, cheese and herbs",
         "ingredients": [
             {
@@ -175,7 +179,8 @@ export default [
         ],
         "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg"
     },
-    {"author": 'Nina Boyadzieva',
+    {
+        "id": 4,"author": 'Nina Boyadzieva',
         "name": "Cranberry and Apple Stuffed Acorn Squash Recipe",
         "ingredients": [
             {
@@ -223,7 +228,8 @@ export default [
         "imageURL": "http://elanaspantry.com/wp-content/uploads/2008/10/acorn_squash_with_cranberry.jpg",
         "originalURL": ""
     },
-    {"author": 'Alexander Alexov',
+    {
+        "id": 5,"author": 'Alexander Alexov',
         "name": "Mic's Yorkshire Puds",
         "ingredients": [
             {

@@ -26,7 +26,7 @@ export default function Navbar() {
                         </div>
                         <Link to="/contacts" className="nav-item nav-link">Contact</Link>
                     </div>
-                    <a href="" className="btn btn-primary py-2 px-4">Book A Table</a>
+                    <Link to="/booking" className="btn btn-primary py-2 px-4">Book A Table</Link>
                 </div>
             </nav>
         </div>

@@ -11,6 +11,9 @@ import OurTeam from "./components/OurTeam"
 import Booking from "./components/Booking"
 import Testimonials from "./components/Testimonials"
 import Contacts from "./components/Contacts"
+import Recipe from "./components/Daily/Recipe"
+import '../public/css/bootstrap.min.css'
+import '../public/css/style.css'
 
 function App() {
   return(
@@ -22,7 +25,8 @@ function App() {
         <Route path='/' element={<HomePage />}/>
         <Route path='/about' element={<About />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path='/daily' element={<Daily />} />
+        <Route path='/recipes' element={<Daily />} />
+        <Route path='/recipes/:id' element={<Recipe />} />
         <Route path='/testimonials' element={<Testimonials />}/>
         <Route path='/booking' element={<Booking />} />
         <Route path="/contacts" element={<Contacts />} />

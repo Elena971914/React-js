@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 export default function Navbar() {
     return(
@@ -13,9 +13,9 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0 pe-4">
-                        <Link to="/" className="nav-item nav-link">Home</Link>
-                        <Link to="/about" className="nav-item nav-link">About</Link>
-                        <Link to="/menu" className="nav-item nav-link">Menu</Link>
+                        <NavLink style={({isActive}) => isActive ? {color: '#FEA116'}: {}} to="/" className="nav-item nav-link">Home</NavLink>
+                        <NavLink to="/about" className="nav-item nav-link">About</NavLink>
+                        <NavLink to="/menu" className="nav-item nav-link">Menu</NavLink>
                         <div className="nav-item dropdown">
                             <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
@@ -24,7 +24,7 @@ export default function Navbar() {
                                 <Link to="/testimonials" className="dropdown-item">Testimonial</Link>
                             </div>
                         </div>
-                        <Link to="/contacts" className="nav-item nav-link">Contact</Link>
+                        <NavLink to="/contacts" className="nav-item nav-link">Contact</NavLink>
                     </div>
                     <Link to="/booking" className="btn btn-primary py-2 px-4">Book A Table</Link>
                 </div>

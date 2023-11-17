@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import styles from "./Recipe.Module.css";
 
 export default function Recipe() {
+  // useNavigate
+  // fetch data from the server
+  
   const { id } = useParams();
   const recipe = competitorsRecipes.filter(
     (recipe) => recipe.id === Number(id)

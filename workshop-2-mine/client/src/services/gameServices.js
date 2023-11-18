@@ -4,7 +4,6 @@ const BASE_URL = 'http://localhost:3030/jsonstore/games'
 
 export const getOne = async(id) => {
     const result = await request('GET', `${BASE_URL}/${id}`)
-    console.log(result)
     return result
 }
 

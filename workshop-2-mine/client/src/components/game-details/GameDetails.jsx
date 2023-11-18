@@ -1,14 +1,28 @@
 import {useState, useEffect} from 'react'
-import * as gameServices from '../../services/gameServices'
 import { useParams } from 'react-router-dom'
+import * as gameServices from '../../services/gameServices'
+import * as commentService from '../../services/commentServices'
+
 
 export default function GameDetails() {
     const [game, setGame] = useState({})
     const {gameId} = useParams()
+    const [comments, setComments] = useState([])
 
     useEffect(() =>{
         gameServices.getOne(gameId).then(setGame)
+        
+        commentService.getAll().then(setComments)
     }, [])
+
+    const onCommentSubmitHandler = async (e) => {
+        e.preventDefault()
+        const data = new FormData(e.currentTarget)
+        const username = data.get('username')
+        const text = data.get('comment')
+        const newComment = await commentService.create(username, text, gameId)
+        setComments(state => [...state, newComment])
+    }
 
     return(
         <section id="game-details">
@@ -29,25 +43,25 @@ export default function GameDetails() {
                 <div className="details-comments">
                     <h2>Comments:</h2>
                     <ul>
-                        <li className="comment">
-                            <p>Content: I rate this one quite highly.</p>
+                        {comments.map(({username, text, _id})=> (
+                            <li key={_id} className="comment">
+                            <p>{username}: {text}</p>
                         </li>
-                        <li className="comment">
-                            <p>Content: The best game.</p>
-                        </li>
+                        ))}
                     </ul>
-                    <p className="no-comment">No comments.</p>
+                    {comments.length === 0 && <p className="no-comment">No comments.</p>}
                 </div>
 
-                <div className="buttons">
+                {/* <div className="buttons">
                     <a href="#" className="button">Edit</a>
                     <a href="#" className="button">Delete</a>
-                </div>
+                </div> */}
             </div>
 
             <article className="create-comment">
                 <label>Add new comment:</label>
-                <form className="form">
+                <form className="form" onSubmit={onCommentSubmitHandler}>
+                    <input type="text" name='username' />
                     <textarea name="comment" placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment"/>
                 </form>

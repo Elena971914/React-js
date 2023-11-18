@@ -1,8 +1,8 @@
 import { Routes, Route} from 'react-router-dom'
 import Header from './components/header/Header';
-import Catalogue from './components/catalogue/Catalogue';
+import GameList from './components/game-list/GameList';
 import CreateGame from './components/create-game/CreateGame';
-import DetailsPage from './components/details-page/DetailsPage';
+import GameDetails from './components/game-details/GameDetails';
 import EditPage from './components/edit-page/EditPage';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
@@ -17,8 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/games" element={<Catalogue />} />
+        <Route path="/games" element={<GameList />} />
         <Route path="/games/create" element={<CreateGame />} />
+        <Route path="/games/:gameId" element={<GameDetails />} />
       </Routes>
     </>
   );

@@ -1,10 +1,12 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import * as gameServices from '../../services/gameServices'
 import * as commentService from '../../services/commentServices'
+import AuthContext from '../../contexts/authContext'
 
 
 export default function GameDetails() {
+    const {email} = useContext(AuthContext)
     const [game, setGame] = useState({})
     const {gameId} = useParams()
     const [comments, setComments] = useState([])
@@ -12,16 +14,15 @@ export default function GameDetails() {
     useEffect(() =>{
         gameServices.getOne(gameId).then(setGame)
         
-        commentService.getAll().then(setComments)
-    }, [])
+        commentService.getAll(gameId).then(setComments)
+    }, [gameId])
 
     const onCommentSubmitHandler = async (e) => {
         e.preventDefault()
         const data = new FormData(e.currentTarget)
-        const username = data.get('username')
         const text = data.get('comment')
-        const newComment = await commentService.create(username, text, gameId)
-        setComments(state => [...state, newComment])
+        const newComment = await commentService.create(gameId, text)
+        setComments(state => [...state, {...newComment, author: email}])
     }
 
     return(
@@ -43,9 +44,9 @@ export default function GameDetails() {
                 <div className="details-comments">
                     <h2>Comments:</h2>
                     <ul>
-                        {comments.map(({username, text, _id})=> (
+                        {comments.map(({_id, text, email})=> (
                             <li key={_id} className="comment">
-                            <p>{username}: {text}</p>
+                            <p>{email}: {text}</p>
                         </li>
                         ))}
                     </ul>
@@ -61,7 +62,6 @@ export default function GameDetails() {
             <article className="create-comment">
                 <label>Add new comment:</label>
                 <form className="form" onSubmit={onCommentSubmitHandler}>
-                    <input type="text" name='username' />
                     <textarea name="comment" placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment"/>
                 </form>

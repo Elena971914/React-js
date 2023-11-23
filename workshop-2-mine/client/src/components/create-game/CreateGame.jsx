@@ -9,7 +9,7 @@ export default function CreateGame() {
     const formInfo = Object.fromEntries(new FormData(e.currentTarget));
     try {
       await gameService.create(formInfo);
-      navigate("/");
+      navigate("/games");
     } catch (err) {
       console.log(err);
     }

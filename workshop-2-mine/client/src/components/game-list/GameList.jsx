@@ -5,12 +5,11 @@ import GameItem from "./game-item/GameItem";
 export default function GameList() {
   const [games, setGames] = useState([]);
   useEffect(() => {
-    try {
       gameServices.getAll()
-      .then((result) => setGames(result));
-    } catch (err) {
-      (err) => console.log(err);
-    }
+      .then(result => setGames(result))
+    .catch (
+      err => console.log(err)
+    )
   }, []);
 
   return (

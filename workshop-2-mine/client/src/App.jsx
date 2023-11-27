@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import GameList from "./components/game-list/GameList";
 import CreateGame from "./components/create-game/CreateGame";
 import GameDetails from "./components/game-details/GameDetails";
-import EditPage from "./components/edit-page/EditPage";
+import EditGame from "./components/edit-game/EditGame";
 import Home from "./components/home/Home";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
@@ -25,6 +25,7 @@ function App() {
           <Route path="/games" element={<GameList />} />
           <Route path="/games/create" element={<CreateGame />} />
           <Route path="/games/:gameId" element={<GameDetails />} />
+          <Route path="/games/:gameId/edit" element={<EditGame />} />
         </Routes>
       </AuthProvider>
     </>

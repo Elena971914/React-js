@@ -18,3 +18,7 @@ export const create = async (gameData) => {
 
     return response
 } 
+
+export const edit = async(gameId, gameData) => {
+    const response = await request("PATCH", `${BASE_URL}/${gameId}`, gameData)
+}

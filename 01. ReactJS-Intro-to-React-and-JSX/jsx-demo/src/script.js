@@ -1,10 +1,16 @@
 /*     react.dev - new documentation 
-React is a library, not a framework for creating SPA apps. All modern apps are SPA = Single Page Applications. There is no routing. The logic in the app is distributed among little components for visualization, logic, and data. Almost native. The DOM is removed and react makes its inner mechanism to work with virtual DOM and then implement it.
-JSX is syntax that makes react different from Angular and Vue. It is easy way to create UI (like HTML). JSX- Javascript superset language. Superset - like typescript - adding to another language, fancier syntax, that is transpiled to plain JavaScript. JSX is like template engine but has many other functionalities as well. In the final state (the client) there is no JSX. There are a few differences between HTML and JSX like the following: in html the property is class='some' and in jsx is className='some' because class is a reserved word. 
+React is a library, not a framework for creating SPA apps. All modern apps are SPA = Single Page Applications. There is no routing. The logic in the app is 
+distributed among little components for visualization, logic, and data. Almost native. The DOM is removed and react makes its inner mechanism to work with virtual 
+DOM and then implement it.
+JSX is syntax that makes react different from Angular and Vue. It is easy way to create UI (like HTML). JSX- Javascript superset language. Superset - like 
+typescript - adding to another language, fancier syntax, that is transpiled to plain JavaScript. JSX is like template engine but has many other functionalities as 
+well. In the final state (the client) there is no JSX. There are a few differences between HTML and JSX like the following: in html the property is class='some' 
+and in jsx is className='some' because class is a reserved word. 
 
 npm init --yes     - initializing base node package in order to be able to install libraries
 npm i react 
-npm i react-dom    - react is separated in two parts - base library (for creation of components and their management) and react-dom (for connection with the dom tree - applying the components from the virtual dom to the real one)
+npm i react-dom    - react is separated in two parts - base library (for creation of components and their management) and react-dom (for connection with the dom 
+tree - applying the components from the virtual dom to the real one)
 
 To create in the memory http server and hosts our page; hot reloading is the tool it uses to apply file changes to the browser - Live server 
 The first request in the browser is to index.html and it shows the noscript tag (shown in the response)
@@ -26,7 +32,9 @@ const root = ReactDOM.createRoot(rootDomElement);
 /* The DOM tree is structure where the children can have only one parent.
    It is comprised of react/html elements. The dom element is an object and it has properties with info about it. 
    Dom elements in the browser can be shown with console.dir(<HTMLDivElement>).
-   React creates VDOM (virtual dom/parallel representation) with React elements (objects, representation of real elements). The React elements have only 4-5 properties and the VDOM is faster and easier to manipulate. At the end React makes diff check and makes as less optimizations on the real tree as possible. Vite makes hot module replacement.*/
+   React creates VDOM (virtual dom/parallel representation) with React elements (objects, representation of real elements). The React elements have only 4-5 
+   properties and the VDOM is faster and easier to manipulate. At the end React makes diff check and makes as less optimizations on the real tree as possible. Vite 
+   makes hot module replacement.*/
 
 // React without JSX
 //                                         1.type  2.props  3.content
@@ -60,7 +68,8 @@ const header = React.createElement(
 // React WITH JSX
 /* This is transpiled to React without JSX with babel tool
    npm install babel-cli@6 babel-preset-react-app@3 - cmd command to use jsx
-   npx babel --watch src --out-dir build --presets react-app/prod - in the package.json "scripts" - to compile everything from the src folder to the build folder using --presets (JSX->JS) 
+   npx babel --watch src --out-dir build --presets react-app/prod - in the package.json "scripts" - to compile everything from the src folder to the build folder 
+   using --presets (JSX->JS) 
    Changes made to this code reflect on the js file in the build folder and on the html afterwards*/
 const headerJSX = (
     <div>
